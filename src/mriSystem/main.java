@@ -12,7 +12,7 @@ public class main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("mrifx.fxml"));
         primaryStage.setTitle("MRI System");
-        primaryStage.setScene(new Scene(root, 1400, 680));
+        primaryStage.setScene(new Scene(root, 1400, 670));
         primaryStage.show();
     }
 
