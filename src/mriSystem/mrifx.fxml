@@ -53,7 +53,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mriSystem.Controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -123,10 +123,10 @@
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SS No." GridPane.rowIndex="1" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Home Phone" GridPane.rowIndex="2" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gender" GridPane.rowIndex="3" />
-                                    <TextField fx:id="fNametextboxt" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
-                                    <TextField prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <TextField prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <ChoiceBox prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="fName" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="ssNumber" prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="hPhone" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ChoiceBox fx:id="genderChoice" prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
                               <Text layoutX="25.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipient Information">
@@ -149,7 +149,7 @@
                                  </rowConstraints>
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip Code" />
-                                    <TextField fx:id="fNametextboxt12" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="zipCode1" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
                                  </children>
                               </GridPane>
                               <GridPane layoutX="1139.0" layoutY="347.0" prefHeight="31.0" prefWidth="179.0">
@@ -162,7 +162,7 @@
                                  </rowConstraints>
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip Code" />
-                                    <TextField fx:id="fNametextboxt121" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="zipCode2" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
                                  </children>
                               </GridPane>
                               <GridPane layoutX="36.0" layoutY="286.0" prefHeight="103.0" prefWidth="322.0">
@@ -181,10 +181,10 @@
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City" GridPane.rowIndex="1" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State" GridPane.rowIndex="2" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Country" GridPane.rowIndex="3" />
-                                    <TextField fx:id="fNametextboxt1" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
-                                    <TextField prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <ChoiceBox prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <ChoiceBox prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="address" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="city" prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ChoiceBox fx:id="countryChoice1" prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <ChoiceBox fx:id="stateChoice2" prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
                               <GridPane layoutX="40.0" layoutY="488.0" prefHeight="103.0" prefWidth="322.0">
@@ -203,10 +203,10 @@
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" GridPane.rowIndex="1" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City" GridPane.rowIndex="2" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State" GridPane.rowIndex="3" />
-                                    <TextField fx:id="fNametextboxt11" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
-                                    <TextField prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <TextField prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <ChoiceBox prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="employer" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="ePhone" prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="eCity" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ChoiceBox fx:id="stateChoice4" prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
                               <Text layoutX="25.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employment History">
@@ -224,7 +224,7 @@
                                  </rowConstraints>
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fax" />
-                                    <TextField fx:id="fNametextboxt122" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="eFax" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
                                  </children>
                               </GridPane>
                               <GridPane layoutX="391.0" layoutY="566.0" prefHeight="25.0" prefWidth="178.0">
@@ -237,7 +237,7 @@
                                  </rowConstraints>
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip Code" />
-                                    <TextField fx:id="fNametextboxt1221" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="eZipCode" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
                                  </children>
                               </GridPane>
                               <GridPane layoutX="785.0" layoutY="488.0" prefHeight="103.0" prefWidth="322.0">
@@ -254,9 +254,9 @@
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact First" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" GridPane.rowIndex="1" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email" GridPane.rowIndex="2" />
-                                    <TextField fx:id="fNametextboxt111" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
-                                    <TextField prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <TextField prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField fx:id="eContactName" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="eLastName" prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="eEmail" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
                               <GridPane layoutX="502.0" layoutY="105.0" prefHeight="103.0" prefWidth="322.0">
@@ -273,9 +273,9 @@
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Middle Name" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth" GridPane.rowIndex="1" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Marital Status" GridPane.rowIndex="2" />
-                                    <TextField fx:id="fNametextboxt2" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="mName" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
                                     <ChoiceBox prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <DatePicker prefHeight="25.0" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <DatePicker fx:id="birthDate" prefHeight="25.0" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
                               <GridPane layoutX="996.0" layoutY="105.0" prefHeight="103.0" prefWidth="322.0">
@@ -294,10 +294,10 @@
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Maiden Name" GridPane.rowIndex="1" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Place of Birth" GridPane.rowIndex="2" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State" GridPane.rowIndex="3" />
-                                    <TextField fx:id="fNametextboxt3" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
-                                    <TextField prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <TextField prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <ChoiceBox prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="lName" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="maidenName" prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="placeBirth" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ChoiceBox fx:id="stateChoice1" prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
                               <GridPane layoutX="785.0" layoutY="311.0" prefHeight="103.0" prefWidth="322.0">
@@ -317,17 +317,17 @@
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address" GridPane.rowIndex="1" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City" GridPane.rowIndex="2" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State" GridPane.rowIndex="3" />
-                                    <TextField fx:id="fNametextboxt4" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
-                                    <TextField prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <TextField prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <ChoiceBox prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField fx:id="fHome" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                    <TextField fx:id="fAddress" prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField fx:id="fCity" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ChoiceBox fx:id="stateChoice3" prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Country" GridPane.rowIndex="4" />
-                                    <ChoiceBox prefHeight="25.0" prefWidth="192.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <ChoiceBox fx:id="countryChoice2" prefHeight="25.0" prefWidth="192.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                  </children>
                               </GridPane>
-                              <Button layoutX="1177.0" layoutY="488.0" mnemonicParsing="false" text="Enter" />
-                              <Button layoutX="1177.0" layoutY="522.0" mnemonicParsing="false" text="Life Insurance Details" />
-                              <Button layoutX="1177.0" layoutY="554.0" mnemonicParsing="false" text="Import" />
+                              <Button fx:id="enterButton" layoutX="1177.0" layoutY="488.0" mnemonicParsing="false" onAction="#enterButtonHandle" text="Enter" />
+                              <Button fx:id="lifeButton" layoutX="1177.0" layoutY="522.0" mnemonicParsing="false" onAction="#lifeButtonHandle" text="Life Insurance Details" />
+                              <Button fx:id="importButton" layoutX="1177.0" layoutY="554.0" mnemonicParsing="false" onAction="#importButtonHandle" text="Import" />
                            </children>
                         </AnchorPane>
                   </content>
