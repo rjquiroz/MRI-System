@@ -274,7 +274,7 @@
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth" GridPane.rowIndex="1" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Marital Status" GridPane.rowIndex="2" />
                                     <TextField fx:id="mName" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
-                                    <ChoiceBox prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ChoiceBox fx:id="maritalChoice" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <DatePicker fx:id="birthDate" prefHeight="25.0" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
