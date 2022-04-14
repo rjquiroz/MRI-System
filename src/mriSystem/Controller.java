@@ -1,5 +1,7 @@
 package mriSystem;
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -131,6 +133,8 @@ public class Controller {
     @FXML
     private TextField zipCode2;
 
+    ArrayList<Recipient> recipients;
+
     public void initialize(){
     //populates the genderChoice
     genderChoice.getItems().add("Male");
@@ -161,11 +165,18 @@ public class Controller {
 
     @FXML
     void enterButtonHandle(ActionEvent event) {
-        System.out.println("enterbutton pressed"); 
+        Address currentAddress1 = new Address(address.getText(), city.getText(), stateChoice2.getValue(), countryChoice1.getValue(), zipCode1.getText());
+        Address funeralAddress1 = new Address(fAddress.getText(), fCity.getText(), stateChoice3.getValue(), countryChoice2.getValue(), zipCode2.getText());
+        Address employerAddress = new Address(null, eCity.getText(), stateChoice4.getValue(), countryChoice2.getValue(), eZipCode.getText());
+        FuneralHome funHome1 = new FuneralHome(fHome.getText(), funeralAddress1);
+        Employment employment1 = new Employment(employer.getText(), employerAddress, eContactName.getText(), eLastName.getText(), eEmail.getText(), ePhone.getText(), eFax.getText());
+        Recipient recipient1 = new Recipient(fName.getText(), ssNumber.getText(), hPhone.getText(), genderChoice.getValue(), mName.getText(), birthDate.getValue(), maritalChoice.getValue(), lName.getText(), maidenName.getText(), placeBirth.getText(), stateChoice1.getValue(),currentAddress1,funHome1, employment1);
+        recipients.add(recipient1);
+        System.out.println(recipient1.toString());
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Enter button");
-        alert.setHeaderText("The Enter Button was pressed");
-        alert.setContentText("I have a great message for you!");
+        alert.setHeaderText("The Recipient's information has been addded.");
+        alert.setContentText("Recipient's information added!");
         alert.showAndWait().ifPresent(rs -> {
         if (rs == ButtonType.OK) {
             System.out.println("Pressed OK.");
