@@ -133,7 +133,8 @@ public class Controller {
     @FXML
     private TextField zipCode2;
 
-    ArrayList<Recipient> recipients;
+    ArrayList<Recipient> recipients = new ArrayList<>();
+    
 
     public void initialize(){
     //populates the genderChoice
@@ -172,11 +173,11 @@ public class Controller {
         Employment employment1 = new Employment(employer.getText(), employerAddress, eContactName.getText(), eLastName.getText(), eEmail.getText(), ePhone.getText(), eFax.getText());
         Recipient recipient1 = new Recipient(fName.getText(), ssNumber.getText(), hPhone.getText(), genderChoice.getValue(), mName.getText(), birthDate.getValue(), maritalChoice.getValue(), lName.getText(), maidenName.getText(), placeBirth.getText(), stateChoice1.getValue(),currentAddress1,funHome1, employment1);
         recipients.add(recipient1);
-        System.out.println(recipient1.toString());
+        //System.out.println(recipient1.toString());
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Enter button");
         alert.setHeaderText("The Recipient's information has been addded.");
-        alert.setContentText("Recipient's information added!");
+        alert.setContentText(recipient1.toString());
         alert.showAndWait().ifPresent(rs -> {
         if (rs == ButtonType.OK) {
             System.out.println("Pressed OK.");
