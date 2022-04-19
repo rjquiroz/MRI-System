@@ -1,18 +1,11 @@
 package mriSystem;
 
-import java.util.ArrayList;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+
+import java.util.ArrayList;
 
 public class Controller {
 
@@ -176,7 +169,7 @@ public class Controller {
         //System.out.println(recipient1.toString());
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Enter button");
-        alert.setHeaderText("The Recipient's information has been addded.");
+        alert.setHeaderText("The Recipient's information has been added.");
         alert.setContentText(recipient1.toString());
         alert.showAndWait().ifPresent(rs -> {
         if (rs == ButtonType.OK) {
