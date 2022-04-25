@@ -23,5 +23,23 @@ public class Address {
         return "\n\nAddress: \n\nStreet Address: " + street + "\nCity: " +  city + "\nState: " + state + "\nCountry: " + country + "\nZipCode: " + zipcode + "\n";
     }
 
+    public String getStreet() {
+        return street;
+    }
 
+    public String getCity() {
+        return city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
 }
