@@ -187,6 +187,9 @@ public class Controller {
     // ArrayList<Recipient> recipients = new ArrayList<>();
 
     ObservableList<InsuranceCompany> insuranceCompanies;
+    /**
+     * Did this commit and push?
+     */
 
 
     /**
