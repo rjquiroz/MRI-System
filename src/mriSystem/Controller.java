@@ -115,7 +115,7 @@ public class Controller {
     private TextField employer;
 
     @FXML
-    private Button enterButton;
+    private Button recipientButton;
 
     @FXML
     private TextField fAddress;
@@ -183,6 +183,9 @@ public class Controller {
     ArrayList<Recipient> recipients = new ArrayList<>();
 
     ObservableList<InsuranceCompany> insuranceCompanies;
+    /**
+     * Did this commit and push?
+     */
 
     public void initialize(){
         insuranceCompanies = FXCollections.observableArrayList();
