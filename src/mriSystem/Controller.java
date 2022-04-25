@@ -120,7 +120,7 @@ public class Controller {
     private TextField employer;
 
     @FXML
-    private Button enterButton;
+    private Button recipientButton;
 
     @FXML
     private TextField fAddress;

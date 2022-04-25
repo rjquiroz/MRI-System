@@ -2069,7 +2069,7 @@
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceInline>1</SequenceInline>
-      <SequenceSequenceIdentity>1(3)..2147483647</SequenceSequenceIdentity>
+      <SequenceSequenceIdentity>1(1)..2147483647</SequenceSequenceIdentity>
     </column>
     <column id="666" parent="200" name="FIRST_NAME">
       <DataType>CHARACTER VARYING(255)|0s</DataType>
@@ -2123,12 +2123,18 @@
       <DataType>CHARACTER VARYING(255)|0s</DataType>
       <Position>14</Position>
     </column>
-    <index id="679" parent="200" name="PRIMARY_KEY_D">
+    <column id="679" parent="200" name="MIDDLE_NAME">
+      <DataType>CHARACTER VARYING(255)|0s</DataType>
+      <DefaultExpression>&apos;N/A&apos;</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>15</Position>
+    </column>
+    <index id="680" parent="200" name="PRIMARY_KEY_A4">
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
-    <key id="680" parent="200" name="CONSTRAINT_D">
+    <key id="681" parent="200" name="CONSTRAINT_D">
       <ColNames>ID</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
