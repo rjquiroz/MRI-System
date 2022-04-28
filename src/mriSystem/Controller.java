@@ -6,11 +6,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
 import java.sql.*;
-
-
 
 public class Controller {
 
@@ -90,6 +89,45 @@ public class Controller {
     private TextField city;
 
     @FXML
+    private Text beneficiaryLastAnswer;
+
+    @FXML
+    private Text beneficiaryNameAnswer;
+
+    @FXML
+    private Text cityTableAnswer;
+
+    @FXML
+    private Text companyAnswer;
+
+    @FXML
+    private Text dueOnAnswer;
+
+    @FXML
+    private Text faceValueAnswer;
+
+    @FXML
+    private Text mqyAnswer;
+
+    @FXML
+    private Text policyNumberAnswer;
+
+    @FXML
+    private Text policyTypeAnswer;
+
+    @FXML
+    private Text relationshipAnswer;
+
+    @FXML
+    private Text stateTableAnswer;
+
+    @FXML
+    private Text statusAnswer;
+
+    @FXML
+    private Text zipCodeTableAnswer;
+
+    @FXML
     private ChoiceBox<String> countryChoice1;
 
     @FXML
@@ -121,6 +159,9 @@ public class Controller {
 
     @FXML
     private Button recipientButton;
+
+    @FXML
+    private Button SearchButton;
 
     @FXML
     private TextField fAddress;
@@ -184,9 +225,79 @@ public class Controller {
     @FXML
     private ListView<InsuranceCompany> listView;
 
-    // ArrayList<Recipient> recipients = new ArrayList<>();
+    @FXML
+    private TableView<InforcePolicy> TableView;
+
+    @FXML
+    private TableView<Report> TableView4;
+
+    @FXML
+    private TableColumn<?, ?> BenefitsColumn;
+
+    @FXML
+    private TableColumn<?, ?> annuitiesColumn;
+
+    @FXML
+    private TableColumn<?, ?> balanceColumn;
+
+    @FXML
+    private TableColumn<?, ?> clientID;
+
+    @FXML
+    private TableColumn<?, ?> fNameColumn;
+
+    @FXML
+    private TableColumn<?, ?> faceAmountColumn;
+
+    @FXML
+    private TableColumn<?, ?> lNameColumn;
+
+    @FXML
+    private TableColumn<?, ?> lifeCompanyColumn;
+
+    @FXML
+    private TableColumn<?, ?> policyNumberColumn4;
+
+    @FXML
+    private TableColumn<?, ?> policyTypeColumn4;
+
+    @FXML
+    private TableColumn<?, ?> ssnColumn;
+
+    @FXML
+    private TableColumn<?, ?> stateColumn;
+
+    @FXML
+    private TableColumn<?, ?> totalFaceAmountColumn;
+
+    @FXML
+    private TableColumn<?, ?> faceValueColumn;
+
+    @FXML
+    private TableColumn<?, ?> isTherePremiumColumn;
+
+    @FXML
+    private TableColumn<?, ?> policyDesignationColumn;
+
+    @FXML
+    private TableColumn<?, ?> policyNumberColumn;
+
+    @FXML
+    private TableColumn<?, ?> policyTypeColumn;
+
+    @FXML
+    private TableColumn<?, ?> premiumAmountColumn;
+
+    @FXML
+    private TableColumn<?, ?> providerColumn;
 
     ObservableList<InsuranceCompany> insuranceCompanies;
+    ObservableList<String> companiesName;
+
+    ObservableList<InforcePolicy> inforcePolicies;
+
+    ObservableList<Report> reports;
+
     /**
      * Did this commit and push?
      */
@@ -196,8 +307,6 @@ public class Controller {
      * Methods to initialize and close database connection.
      */
     public void initializeDataBase() {
-
-
 
         // Connection to the database
         // JDBC driver name and database URL
@@ -237,6 +346,9 @@ public class Controller {
      */
     public void initialize(){
         insuranceCompanies = FXCollections.observableArrayList();
+        companiesName = FXCollections.observableArrayList();
+        inforcePolicies = FXCollections.observableArrayList();
+        reports = FXCollections.observableArrayList();
         //populates genderChoicesBox
         genderChoice.getItems().add("Male");
         genderChoice.getItems().add("Female");
@@ -262,15 +374,48 @@ public class Controller {
         countryChoice1.getItems().add("United States");
         countryChoice2.getItems().add("United States");
 
+        //set the column values of the tableView.
+        policyNumberColumn.setCellValueFactory(new PropertyValueFactory("policyNumber"));
+        faceValueColumn.setCellValueFactory(new PropertyValueFactory("faceValue"));
+        providerColumn.setCellValueFactory(new PropertyValueFactory("Provider"));
+        policyTypeColumn.setCellValueFactory(new PropertyValueFactory("policyType"));
+        policyDesignationColumn.setCellValueFactory(new PropertyValueFactory("policyDesignation"));
+        isTherePremiumColumn.setCellValueFactory(new PropertyValueFactory("isTherePremium"));
+        premiumAmountColumn.setCellValueFactory(new PropertyValueFactory("premiumAmount"));
+
+        //set the column values of the tableView in tab 4.
+        stateColumn.setCellValueFactory(new PropertyValueFactory("state"));
+        fNameColumn.setCellValueFactory(new PropertyValueFactory("fName"));
+        lNameColumn.setCellValueFactory(new PropertyValueFactory("lName"));
+        clientID.setCellValueFactory(new PropertyValueFactory("id"));
+        ssnColumn.setCellValueFactory(new PropertyValueFactory("ssn"));
+        lifeCompanyColumn.setCellValueFactory(new PropertyValueFactory("lifeCompany"));
+        policyNumberColumn4.setCellValueFactory(new PropertyValueFactory("policyNumber"));
+        policyTypeColumn4.setCellValueFactory(new PropertyValueFactory("policyType"));
+        faceAmountColumn.setCellValueFactory(new PropertyValueFactory("faceAmount"));
+        annuitiesColumn.setCellValueFactory(new PropertyValueFactory("annuityCompany"));
+        totalFaceAmountColumn.setCellValueFactory(new PropertyValueFactory("totalFaceAmount"));
+        BenefitsColumn.setCellValueFactory(new PropertyValueFactory("benefitPayouts"));
+        balanceColumn.setCellValueFactory(new PropertyValueFactory("balance"));
+
+
         //loads the products from the database.
         try {
-            loadProductList();
+            loadCompaniesList();
+            loadInforcedPolicies();
+            loadReports();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
         //populates the listView in tab2
         listView.setItems(insuranceCompanies);
+
+        //populates tableView in tab3
+        TableView.setItems(inforcePolicies);
+
+        //loads the database into tableView of reports in tab4
+        TableView4.setItems(reports);
 
     }
 
@@ -399,15 +544,34 @@ public class Controller {
         ContactFaxAnswer.setText(listView.getSelectionModel().getSelectedItem().getContactFax());
         ContactEmailAnswer.setText(listView.getSelectionModel().getSelectedItem().getContactEmail());
         AltPhoneAnswer.setText(listView.getSelectionModel().getSelectedItem().getAltPhone());
+    }
 
+    @FXML
+    /**
+     * tableView in tab3 when clicking in an object it will display the details underneath
+     */
+    void onClickTableViewHandle(javafx.scene.input.MouseEvent event) {
+        policyNumberAnswer.setText(TableView.getSelectionModel().getSelectedItem().getPolicyNumber());
+        statusAnswer.setText(TableView.getSelectionModel().getSelectedItem().getStatus());
+        policyTypeAnswer.setText(TableView.getSelectionModel().getSelectedItem().getPolicyType());
+        companyAnswer.setText(TableView.getSelectionModel().getSelectedItem().getProvider().getName());
+        faceValueAnswer.setText(String.valueOf(TableView.getSelectionModel().getSelectedItem().getFaceValue() + "$"));
+        mqyAnswer.setText(TableView.getSelectionModel().getSelectedItem().getMqy());
+        cityTableAnswer.setText(TableView.getSelectionModel().getSelectedItem().getProvider().getAddress().getCity());
+        stateTableAnswer.setText(TableView.getSelectionModel().getSelectedItem().getProvider().getAddress().getState());
+        beneficiaryNameAnswer.setText(TableView.getSelectionModel().getSelectedItem().getBeneficiary().getfName());
+        beneficiaryLastAnswer.setText(TableView.getSelectionModel().getSelectedItem().getBeneficiary().getlName());
+        relationshipAnswer.setText(TableView.getSelectionModel().getSelectedItem().getBeneficiary().getRelationship());
+        dueOnAnswer.setText(String.valueOf(TableView.getSelectionModel().getSelectedItem().getDueOn()));
+        zipCodeTableAnswer.setText(TableView.getSelectionModel().getSelectedItem().getBeneficiary().getZipcode());
     }
 
     /**
-     * method that loads the database into the listView on tab2
-     * connects to the database, select the insurance companies from it and then load it into
-     * a observable list that is going to the listView.
-     */
-    public void loadProductList() throws SQLException {
+         * method that loads the database into the listView on tab2
+         * connects to the database, select the insurance companies from it and then load it into
+         * a observable list that is going to the listView.
+         */
+    public void loadCompaniesList() throws SQLException {
 
         final String jdbc_Driver = "org.h2.Driver";
         final String db_Url = "jdbc:h2:./res/MRI_Data";
@@ -455,6 +619,7 @@ public class Controller {
 
                 // save to observable list
                 insuranceCompanies.add(insuranceCompanyFromDB);
+                companiesName.add(insuranceCompanyFromDB.getName());
 
             }
             // STEP 4: Clean-up environment
@@ -468,6 +633,155 @@ public class Controller {
         }
 
     }
+
+    /**
+     * method that loads the inforced policies database into the tableView on tab3
+     * connects to the database, select the policies from it and then load it into
+     * a observable list that is going to the tableView.
+     */
+    public void loadInforcedPolicies() throws SQLException {
+
+        final String jdbc_Driver = "org.h2.Driver";
+        final String db_Url = "jdbc:h2:./res/MRI_Data";
+
+        //  Database credentials
+        final String user = "";
+        final String pass = "";
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            // STEP 1: Register JDBC driver
+            Class.forName(jdbc_Driver);
+
+            //STEP 2: Open a connection
+            conn = DriverManager.getConnection(db_Url, user, pass);
+
+            //STEP 3: Execute a query
+            stmt = conn.createStatement();
+
+            String sql = "SELECT * FROM INFORCEPOLICIES";
+
+
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+
+                // these lines correspond to the database table columns
+
+                String policyNumber = rs.getString(1);
+                double faceValue = rs.getDouble(2);
+                String FaceValueDue = rs.getString(3);
+                String provider = rs.getString(4);
+                String providerCity = rs.getString(5);
+                String providerState = rs.getString(6);
+                String policyType = rs.getString(7);
+                String designation = rs.getString(8);
+                boolean isTherePremium = rs.getBoolean(9);
+                double premiumAmount = rs.getDouble(10);
+                String status = rs.getString(11);
+                Date dueOn = rs.getDate(12);
+                String beneficiary = rs.getString(13);
+                String beneficiaryLast = rs.getString(14);
+                String relationship = rs.getString(15);
+                String zipcode = rs.getString(16);
+                String mqy = rs.getString(17);
+
+                //create new object
+                Beneficiary beneficiary1 = new Beneficiary(beneficiary, beneficiaryLast, relationship, zipcode);
+                InforcePolicy policy = null;
+                for (InsuranceCompany company : insuranceCompanies) {
+                    if (company.getName().equals(provider)) {
+                        policy = new InforcePolicy(null, policyNumber, faceValue, company, policyType, designation, isTherePremium, premiumAmount, status, dueOn, beneficiary1, mqy) {
+                        };
+                    }
+                }
+
+                // save to observable list
+                inforcePolicies.add(policy);
+
+            }
+            // STEP 4: Clean-up environment
+            stmt.close();
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * method that loads the database into the tableView on tab4
+     * connects to the database, select the report from it and then load it into
+     * a observable list that is going to the tableView.
+     */
+    public void loadReports() throws SQLException {
+
+        final String jdbc_Driver = "org.h2.Driver";
+        final String db_Url = "jdbc:h2:./res/MRI_Data";
+
+        //  Database credentials
+        final String user = "";
+        final String pass = "";
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            // STEP 1: Register JDBC driver
+            Class.forName(jdbc_Driver);
+
+            //STEP 2: Open a connection
+            conn = DriverManager.getConnection(db_Url, user, pass);
+
+            //STEP 3: Execute a query
+            stmt = conn.createStatement();
+
+            String sql = "SELECT * FROM REPORTS";
+
+
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+
+                // these lines correspond to the database table columns
+
+                String state = rs.getString(1);
+                String fName = rs.getString(2);
+                String lName = rs.getString(3);
+                int id = rs.getInt(4);
+                String ssn = rs.getString(5);
+                String lifeCompany = rs.getString(6);
+                String policyNumber = rs.getString(7);
+                String policyType = rs.getString(8);
+                double faceAmount = rs.getDouble(9);
+                String annuityCompany = rs.getString(10);
+                double totalFaceAmount = rs.getDouble(11);
+                double benefitsPayouts = rs.getDouble(12);
+                double balance = rs.getDouble(13);
+
+                // create object
+                Report report = new Report(fName,lName,ssn,state,id,lifeCompany,policyNumber,policyType,faceAmount,benefitsPayouts,totalFaceAmount,annuityCompany) {
+                };
+                report.calculateBalance(totalFaceAmount,benefitsPayouts);
+                // save to observable list
+                reports.add(report);
+
+            }
+            // STEP 4: Clean-up environment
+            stmt.close();
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 
 
 
