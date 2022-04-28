@@ -325,7 +325,7 @@
                                     <ChoiceBox fx:id="countryChoice2" prefHeight="25.0" prefWidth="192.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                  </children>
                               </GridPane>
-                              <Button fx:id="enterButton" layoutX="1177.0" layoutY="488.0" mnemonicParsing="false" onAction="#enterButtonHandle" text="Enter" />
+                              <Button fx:id="recipientButton" layoutX="1177.0" layoutY="488.0" mnemonicParsing="false" onAction="#addRecipient" text="Enter" />
                               <Button fx:id="lifeButton" layoutX="1177.0" layoutY="522.0" mnemonicParsing="false" onAction="#lifeButtonHandle" text="Life Insurance Details" />
                               <Button fx:id="importButton" layoutX="1177.0" layoutY="554.0" mnemonicParsing="false" onAction="#importButtonHandle" text="Import" />
                            </children>
@@ -336,7 +336,7 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-                              <TextField layoutX="34.0" layoutY="78.0" prefHeight="25.0" prefWidth="1296.0" promptText="Search" />
+                              <TextField layoutX="34.0" layoutY="78.0" prefHeight="25.0" prefWidth="1249.0" promptText="Search" />
                               <Text layoutX="530.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance Company Information">
                                  <font>
                                     <Font size="24.0" />
@@ -438,6 +438,7 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Text>
+                              <Button layoutX="1281.0" layoutY="78.0" mnemonicParsing="false" text="Search" />
                            </children></AnchorPane>
                   </content>
                 </Tab>
@@ -450,15 +451,15 @@
                                     <Font size="24.0" />
                                  </font>
                               </Text>
-                              <TableView layoutX="28.0" layoutY="86.0" prefHeight="200.0" prefWidth="1337.0">
+                              <TableView fx:id="TableView" layoutX="28.0" layoutY="86.0" onMouseClicked="#onClickTableViewHandle" prefHeight="200.0" prefWidth="1337.0">
                                 <columns>
-                                  <TableColumn prefWidth="254.0" text="Policy Number" />
-                                  <TableColumn prefWidth="281.0" text="Face Value" />
-                                    <TableColumn prefWidth="261.0" text="Provider" />
-                                    <TableColumn prefWidth="227.0" text="Policy Type" />
-                                    <TableColumn prefWidth="233.0" text="Policy Designation" />
-                                    <TableColumn prefWidth="233.0" text="Is There Any Premium?" />
-                                    <TableColumn prefWidth="233.0" text="Premium Amount" />
+                                  <TableColumn fx:id="policyNumberColumn" prefWidth="254.0" text="Policy Number" />
+                                  <TableColumn fx:id="faceValueColumn" prefWidth="281.0" text="Face Value" />
+                                    <TableColumn fx:id="providerColumn" prefWidth="261.0" text="Provider" />
+                                    <TableColumn fx:id="policyTypeColumn" prefWidth="227.0" text="Policy Type" />
+                                    <TableColumn fx:id="policyDesignationColumn" prefWidth="233.0" text="Policy Designation" />
+                                    <TableColumn fx:id="isTherePremiumColumn" prefWidth="233.0" text="Is There Any Premium?" />
+                                    <TableColumn fx:id="premiumAmountColumn" prefWidth="233.0" text="Premium Amount" />
                                 </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -480,6 +481,10 @@
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" GridPane.rowIndex="1" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type of Policy:" GridPane.rowIndex="2" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Company:" GridPane.rowIndex="3" />
+                                    <Text fx:id="policyNumberAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                                    <Text fx:id="statusAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Text fx:id="policyTypeAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Text fx:id="companyAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
                               <Text layoutX="39.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Policy Details">
@@ -487,10 +492,10 @@
                                     <Font name="System Bold" size="12.0" />
                                  </font>
                               </Text>
-                              <GridPane layoutX="408.0" layoutY="345.0">
+                              <GridPane layoutX="408.0" layoutY="345.0" prefHeight="120.0" prefWidth="318.0">
                                  <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="155.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="74.0" />
                                  </columnConstraints>
                                  <rowConstraints>
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -500,12 +505,16 @@
                                  </rowConstraints>
                                  <children>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Face Value:" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Monthly/Quartly/Yearly:" GridPane.rowIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Monthly/Quarterly/Yearly:" GridPane.rowIndex="1" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City:" GridPane.rowIndex="2" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State:" GridPane.rowIndex="3" />
+                                    <Text fx:id="faceValueAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                                    <Text fx:id="mqyAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Text fx:id="cityTableAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Text fx:id="stateTableAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
-                              <GridPane layoutX="841.0" layoutY="345.0">
+                              <GridPane layoutX="408.0" layoutY="547.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -513,17 +522,12 @@
                                  <rowConstraints>
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Draw Downs:" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="if YES Amt:" GridPane.rowIndex="1" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Due on:" GridPane.rowIndex="2" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip:" GridPane.rowIndex="3" />
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Due on:" />
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip:" GridPane.rowIndex="1" />
+                                    <Text fx:id="dueOnAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                                    <Text fx:id="zipCodeTableAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
                               <Text layoutX="39.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beneficiary(ies)">
@@ -545,6 +549,9 @@
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" GridPane.rowIndex="1" />
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Relantionship:" GridPane.rowIndex="2" />
+                                    <Text fx:id="beneficiaryNameAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                                    <Text fx:id="beneficiaryLastAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Text fx:id="relationshipAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
                            </children></AnchorPane>
@@ -559,21 +566,21 @@
                                     <Font size="24.0" />
                                  </font>
                               </Text>
-                              <TableView layoutX="29.0" layoutY="104.0" prefHeight="443.0" prefWidth="1311.0">
+                              <TableView fx:id="TableView4" layoutX="29.0" layoutY="104.0" prefHeight="443.0" prefWidth="1311.0">
                                 <columns>
-                                  <TableColumn prefWidth="75.0" text="State" />
-                                  <TableColumn prefWidth="75.0" text="First Name" />
-                                    <TableColumn prefWidth="75.0" text="Last Name" />
-                                    <TableColumn prefWidth="75.0" text="Client ID" />
-                                    <TableColumn prefWidth="75.0" text="SSN" />
-                                    <TableColumn prefWidth="75.0" text="Life Insurance Company(ies)" />
-                                    <TableColumn prefWidth="75.0" text="Policy Number" />
-                                    <TableColumn prefWidth="75.0" text="Policy Type" />
-                                    <TableColumn prefWidth="75.0" text="Face Amount" />
-                                    <TableColumn prefWidth="75.0" text="Annuity(ies) Company" />
-                                    <TableColumn prefWidth="75.0" text="Total Face Amount" />
-                                    <TableColumn prefWidth="75.0" text="Benefit Payouts" />
-                                    <TableColumn prefWidth="75.0" text="Balance" />
+                                  <TableColumn fx:id="stateColumn" prefWidth="75.0" text="State" />
+                                  <TableColumn fx:id="fNameColumn" prefWidth="75.0" text="First Name" />
+                                    <TableColumn fx:id="lNameColumn" prefWidth="75.0" text="Last Name" />
+                                    <TableColumn fx:id="clientID" prefWidth="75.0" text="Client ID" />
+                                    <TableColumn fx:id="ssnColumn" prefWidth="75.0" text="SSN" />
+                                    <TableColumn fx:id="lifeCompanyColumn" prefWidth="87.0" text="Life Insurance Company(ies)" />
+                                    <TableColumn fx:id="policyNumberColumn4" minWidth="0.0" prefWidth="111.0" text="Policy Number" />
+                                    <TableColumn fx:id="policyTypeColumn4" prefWidth="75.0" text="Policy Type" />
+                                    <TableColumn fx:id="faceAmountColumn" prefWidth="75.0" text="Face Amount" />
+                                    <TableColumn fx:id="annuitiesColumn" prefWidth="95.0" text="Annuity(ies) Company" />
+                                    <TableColumn fx:id="totalFaceAmountColumn" minWidth="0.0" prefWidth="84.0" text="Total Face Amount" />
+                                    <TableColumn fx:id="BenefitsColumn" minWidth="0.0" prefWidth="104.0" text="Benefit Payouts" />
+                                    <TableColumn fx:id="balanceColumn" minWidth="0.0" prefWidth="112.0" text="Balance" />
                                 </columns>
                                  <columnResizePolicy>
                                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

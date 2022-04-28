@@ -78,18 +78,6 @@ public class InsuranceCompany {
 
     @Override
     public String toString() {
-        return "InsuranceCompany{" +
-                "name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", fax='" + fax + '\'' +
-                ", address=" + address +
-                ", contactName='" + contactName + '\'' +
-                ", contactMidName='" + contactMidName + '\'' +
-                ", contactLastName='" + contactLastName + '\'' +
-                ", contactPhone='" + contactPhone + '\'' +
-                ", contactFax='" + contactFax + '\'' +
-                ", altPhone='" + altPhone + '\'' +
-                ", contactEmail='" + contactEmail + '\'' +
-                '}';
+        return name + "             "+ address.getStreet() + "          " + address.getCity() + "           " + address.getState() + "          " + address.getCountry() + "            " + address.getZipcode();
     }
 }
