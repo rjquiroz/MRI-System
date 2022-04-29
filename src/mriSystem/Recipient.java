@@ -19,7 +19,7 @@ public class Recipient {
     private Employment employer;
 
 
-    public Recipient(){
+    public Recipient(String recipfName, String reciplName, String recipmName, String gender, String birthDay, String birthPlace, String maritalStatus, String maidenName, String SSN, String phone, String state, String address, String funeralHome, String recipEmployer){
 
     }
 
@@ -41,6 +41,7 @@ public class Recipient {
     }
 
 
+    @Override
     public String toString(){
         return "Recipient Information: \n\nFirst Name: " + fName + "\nSocial Security Number: " + ssn + "\nPhone Number: " + phone + "\nGender: " + gender + "\nMiddle Name: " + Mname + "\nBirth Date: " + birthDate + "\nMarital Status: " + marital + "\nLast Name: " + lname + "\nMaiden Name: " + maidenName + "\nPlace of Birth: " + birthPlace + "\nState: " + state + currentAddress.toString() + funHome.toString() + employer.toString();
     }

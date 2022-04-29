@@ -365,14 +365,7 @@ public class Controller {
         //populates the 4 stateChoices with the states
         for (States st : States.values()) {
             stateChoice1.getItems().add(st + " (" + st.code + ")");
-            stateChoice2.getItems().add(st + " (" + st.code+ ")");
-            stateChoice3.getItems().add(st + " (" + st.code+ ")");
-            stateChoice4.getItems().add(st + " (" + st.code+ ")");
           }
-
-        //populates the country choices with only the US for now
-        countryChoice1.getItems().add("United States");
-        countryChoice2.getItems().add("United States");
 
         //set the column values of the tableView.
         policyNumberColumn.setCellValueFactory(new PropertyValueFactory("policyNumber"));
@@ -461,34 +454,15 @@ public class Controller {
             preparedStatement.setString(12, newAddress);
             preparedStatement.setString(13, newFuneral);
             preparedStatement.setString(14, newEmployer);
-            preparedStatement.execute();
+
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
 
         }
         catch (SQLException e) {
             e.printStackTrace();
 
         }
-        /*
-        Address currentAddress1 = new Address(address.getText(), city.getText(), stateChoice2.getValue(), countryChoice1.getValue(), zipCode1.getText());
-        Address funeralAddress1 = new Address(fAddress.getText(), fCity.getText(), stateChoice3.getValue(), countryChoice2.getValue(), zipCode2.getText());
-        Address employerAddress = new Address(null, eCity.getText(), stateChoice4.getValue(), countryChoice2.getValue(), eZipCode.getText());
-        FuneralHome funHome1 = new FuneralHome(fHome.getText(), funeralAddress1);
-        Employment employment1 = new Employment(employer.getText(), employerAddress, eContactName.getText(), eLastName.getText(), eEmail.getText(), ePhone.getText(), eFax.getText());
-        Recipient recipient1 = new Recipient(fName.getText(), ssNumber.getText(), hPhone.getText(), genderChoice.getValue(), mName.getText(), birthDate.getValue(), maritalChoice.getValue(), lName.getText(), maidenName.getText(), placeBirth.getText(), stateChoice1.getValue(),currentAddress1,funHome1, employment1);
-        recipients.add(recipient1);
-
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Enter button");
-        alert.setHeaderText("The Recipient's information has been added.");
-        alert.setContentText(recipient1.toString());
-        alert.showAndWait().ifPresent(rs -> {
-        if (rs == ButtonType.OK) {
-            System.out.println("Pressed OK.");
-        }
-        });
-
-
-         */
     }
 
     /**
@@ -781,6 +755,62 @@ public class Controller {
         }
 
     }
+    /**
+     * POPULATE RECIPIENTS TAB TABLE
+     * method that loads the database into the listView in tab1
+     * connects to the database, select the recipients from it and then load it into
+     * an observable list that is going to the listView.
+     */
+
+/*    public void loadRecipientsList() throws SQLException {
+
+       initializeDataBase();
+
+        try {
+            stmt = conn.createStatement();
+
+            String sql = "SELECT * FROM RECIPIENT";
+
+
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+
+                // these lines correspond to the database table columns
+
+                String recipfName = rs.getString(1);
+                String reciplName = rs.getString(2);
+                String recipmName = rs.getString(3);
+                String gender = rs.getString(4);
+                String birthDay = rs.getString(5);
+                String birthPlace = rs.getString(6);
+                String maritalStatus = rs.getString(7);
+                String MaidenName = rs.getString(8);
+                String SSN = rs.getString(9);
+                String phone = rs.getString(10);
+                String state = rs.getString(11);
+                String address = rs.getString(12);
+                String FuneralHome = rs.getString(13);
+                String recipEmployer = rs.getString(14);
+
+
+                // create object
+
+                Recipient RecipientFromDB = new Recipient(recipfName,reciplName,recipmName,gender,birthDay,birthPlace,maritalStatus,MaidenName,SSN,phone,state,address,FuneralHome,recipEmployer) {
+                };
+
+                // save to observable list
+                recipients.add(RecipientFromDB);
+
+            }
+            // STEP 4: Clean-up environment and close database
+            closeDb();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        }
+
+ */
 
 
 
