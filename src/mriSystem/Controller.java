@@ -10,6 +10,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
 
 import java.sql.*;
+import java.time.LocalDate;
 
 public class Controller {
 
@@ -291,6 +292,9 @@ public class Controller {
     @FXML
     private TableColumn<?, ?> providerColumn;
 
+    @FXML
+    private ListView<Recipient> recipientListView;
+
     ObservableList<InsuranceCompany> insuranceCompanies;
     ObservableList<String> companiesName;
 
@@ -345,6 +349,7 @@ public class Controller {
      * i.e. Gender, marital status, and etc.
      */
     public void initialize(){
+        recipients = FXCollections.observableArrayList();
         insuranceCompanies = FXCollections.observableArrayList();
         companiesName = FXCollections.observableArrayList();
         inforcePolicies = FXCollections.observableArrayList();
@@ -397,9 +402,12 @@ public class Controller {
             loadCompaniesList();
             loadInforcedPolicies();
             loadReports();
+            loadRecipients();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
+        recipientListView.setItems(recipients);
 
         //populates the listView in tab2
         listView.setItems(insuranceCompanies);
@@ -427,7 +435,7 @@ public class Controller {
             String newLastName = lName.getText();
             String newMiddleName = mName.getText();
             String newGender = genderChoice.getValue();
-            String newBirthday = String.valueOf(birthDate.getValue());
+            LocalDate newBirthday = birthDate.getValue();
             String newBirthPlace = placeBirth.getText();
             String newMaritalStatus = maritalChoice.getValue();
             String newMaidenName = maidenName.getText();
@@ -438,7 +446,7 @@ public class Controller {
             String newFuneral = fHome.getText();
             String newEmployer = employer.getText();
 
-            String preparedStm = "INSERT INTO RECIPIENT(FIRST_NAME, LAST_NAME, MIDDLE_NAME, GENDER, BIRTHDAY, BIRTHPLACE, MARITAL_STATUS, MAIDEN_NAME, SSN, PHONE, STATE, ADDRESS,FUNERAL_HOME, EMPLOYER) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+            String preparedStm = "INSERT INTO RECIPIENTS(FIRST_NAME, MIDDLE_NAME,LAST_NAME, GENDER, BIRTHDAY, BIRTHPLACE, MARITAL_STATUS, MAIDEN_NAME, SSN, PHONE, STATE, ADDRESS,FUNERAL_HOME, EMPLOYER) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
             PreparedStatement preparedStatement = conn.prepareStatement(preparedStm);
             preparedStatement.setString(1, newFirstName);
             preparedStatement.setString(2, newLastName);
@@ -455,14 +463,34 @@ public class Controller {
             preparedStatement.setString(13, newFuneral);
             preparedStatement.setString(14, newEmployer);
 
+            Recipient recipient = new Recipient(newFirstName, newLastName,newMiddleName,newGender,newBirthday,newBirthPlace,newMaritalStatus,newMaidenName,newSSN,newPhone,newState,newAddress,newFuneral,newEmployer) {
+            };
+            recipients.add(recipient);
             preparedStatement.executeUpdate();
             preparedStatement.close();
+            fName.clear();
+            lName.clear();
+            mName.clear();
+            genderChoice.getSelectionModel().clearSelection();
+            birthDate.getValue();
+            placeBirth.clear();
+            maidenName.clear();
+            ssNumber.clear();
+            hPhone.clear();
+            stateChoice1.getSelectionModel().clearSelection();
+            address.clear();
+            fHome.clear();
+            employer.clear();
 
+            //loads the products from the database.
+                recipientListView.setItems(recipients);
+                
         }
         catch (SQLException e) {
             e.printStackTrace();
 
         }
+
     }
 
     /**
@@ -755,6 +783,75 @@ public class Controller {
         }
 
     }
+
+    /**
+     * method that loads the database into the listView on tab1
+     * connects to the database, select the recipients from it and then load it into
+     * a observable list that is going to the listView.
+     */
+    public void loadRecipients() throws SQLException {
+
+        final String jdbc_Driver = "org.h2.Driver";
+        final String db_Url = "jdbc:h2:./res/MRI_Data";
+
+        //  Database credentials
+        final String user = "";
+        final String pass = "";
+        Connection conn = null;
+        Statement stmt = null;
+
+        try {
+            // STEP 1: Register JDBC driver
+            Class.forName(jdbc_Driver);
+
+            //STEP 2: Open a connection
+            conn = DriverManager.getConnection(db_Url, user, pass);
+
+            //STEP 3: Execute a query
+            stmt = conn.createStatement();
+
+            String sql = "SELECT * FROM RECIPIENTS";
+
+
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+
+                // these lines correspond to the database table columns
+
+                String newFirstName = rs.getString(2);
+                String newLastName = rs.getString(4);
+                String newMiddleName = rs.getString(3);
+                String newGender = rs.getString(5);
+                LocalDate newBirthday = LocalDate.parse(rs.getString(6));
+                String newBirthPlace = rs.getString(7);
+                String newMaritalStatus = rs.getString(8);
+                String newMaidenName = rs.getString(9);
+                String newSSN = rs.getString(10);
+                String newPhone = rs.getString(11);
+                String newState = rs.getString(12);
+                String newAddress = rs.getString(13);
+                String newFuneral = rs.getString(14);
+                String newEmployer = rs.getString(15);
+
+                // create object
+                Recipient recipient = new Recipient(newFirstName, newLastName,newMiddleName,newGender,newBirthday,newBirthPlace,newMaritalStatus,newMaidenName,newSSN,newPhone,newState,newAddress,newFuneral,newEmployer) {
+                };
+                recipients.add(recipient);
+
+            }
+            // STEP 4: Clean-up environment
+            stmt.close();
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    
     /**
      * POPULATE RECIPIENTS TAB TABLE
      * method that loads the database into the listView in tab1

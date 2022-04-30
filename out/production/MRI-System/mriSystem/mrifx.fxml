@@ -54,444 +54,444 @@
 <?import javafx.scene.text.Text?>
 
 <VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mriSystem.Controller">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MRISystem App" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <AnchorPane prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-         <children>
-            <TabPane fx:id="TabPane" prefHeight="680.0" prefWidth="1400.0" tabClosingPolicy="UNAVAILABLE">
-              <tabs>
-                <Tab fx:id="RecipientsTab" text="Recipients">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="325.0" prefWidth="463.0">
-                           <children>
-                              <Text layoutX="36.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicaid Recipient Intake Data">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Text>
-                              <GridPane layoutX="36.0" layoutY="105.0" prefHeight="103.0" prefWidth="322.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SS No." GridPane.rowIndex="1" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Home Phone" GridPane.rowIndex="2" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gender" GridPane.rowIndex="3" />
-                                    <TextField fx:id="fName" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
-                                    <TextField fx:id="ssNumber" prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <TextField fx:id="hPhone" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <ChoiceBox fx:id="genderChoice" prefHeight="33.0" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                 </children>
-                              </GridPane>
-                              <Text layoutX="25.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipient Information">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Text>
-                              <GridPane layoutX="36.0" layoutY="208.0" prefHeight="39.0" prefWidth="322.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address" />
-                                    <TextField fx:id="address" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
-                                 </children>
-                              </GridPane>
-                              <GridPane layoutX="36.0" layoutY="453.0" prefHeight="35.0" prefWidth="322.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employer" />
-                                    <TextField fx:id="employer" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="1" />
-                                 </children>
-                              </GridPane>
-                              <GridPane layoutX="391.0" layoutY="509.0" prefHeight="25.0" prefWidth="178.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                              </GridPane>
-                              <GridPane layoutX="36.0" layoutY="247.0" prefHeight="103.0" prefWidth="322.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Middle Name" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth" GridPane.rowIndex="1" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Marital Status" GridPane.rowIndex="2" />
-                                    <TextField fx:id="mName" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
-                                    <ChoiceBox fx:id="maritalChoice" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <DatePicker fx:id="birthDate" prefHeight="25.0" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                 </children>
-                              </GridPane>
-                              <GridPane layoutX="36.0" layoutY="350.0" prefHeight="103.0" prefWidth="322.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Maiden Name" GridPane.rowIndex="1" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Place of Birth" GridPane.rowIndex="2" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State" GridPane.rowIndex="3" />
-                                    <TextField fx:id="lName" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
-                                    <TextField fx:id="maidenName" prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <TextField fx:id="placeBirth" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <ChoiceBox fx:id="stateChoice1" prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                 </children>
-                              </GridPane>
-                              <GridPane layoutX="34.0" layoutY="484.0" prefHeight="33.0" prefWidth="326.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Funeral Home" />
-                                    <TextField fx:id="fHome" prefHeight="25.0" prefWidth="193.0" GridPane.columnIndex="1" />
-                                 </children>
-                              </GridPane>
-                              <Button fx:id="addRecipientBtn" layoutX="25.0" layoutY="554.0" mnemonicParsing="false" onAction="#addRecipient" prefHeight="25.0" prefWidth="127.0" text="Enter" />
-                              <Button fx:id="lifeButton" layoutX="159.0" layoutY="554.0" mnemonicParsing="false" onAction="#lifeButtonHandle" text="Life Insurance Details" />
-                              <Button fx:id="importButton" layoutX="294.0" layoutY="554.0" mnemonicParsing="false" onAction="#importButtonHandle" prefHeight="25.0" prefWidth="128.0" text="Import" />
-                              <ListView fx:id="recipientListView" layoutX="569.0" layoutY="105.0" prefHeight="410.0" prefWidth="727.0" />
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </Tab>
-                <Tab fx:id="ProvidersTab" text="Providers">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <TextField layoutX="34.0" layoutY="78.0" prefHeight="25.0" prefWidth="1249.0" promptText="Search" />
-                              <Text layoutX="530.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance Company Information">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Text>
-                              <ListView fx:id="listView" layoutX="32.0" layoutY="126.0" onMouseClicked="#onClickHandle" prefHeight="319.0" prefWidth="1301.0" />
-                              <GridPane layoutX="32.0" layoutY="479.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Company Name:" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street address:" GridPane.rowIndex="1" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City:" GridPane.rowIndex="2" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State:" GridPane.rowIndex="3" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Country:" GridPane.rowIndex="4" />
-                                    <Text fx:id="CompanyNameAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
-                                    <Text fx:id="AddressAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Text fx:id="CityAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Text fx:id="StateAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <Text fx:id="CountryAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                 </children>
-                              </GridPane>
-                              <GridPane layoutX="274.0" layoutY="494.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fax number:" GridPane.rowIndex="1" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip code:" GridPane.rowIndex="2" />
-                                    <Text fx:id="PhoneAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
-                                    <Text fx:id="FaxAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Text fx:id="ZipAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                 </children>
-                              </GridPane>
-                              <GridPane layoutX="717.0" layoutY="479.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Middle Name:" GridPane.rowIndex="1" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" GridPane.rowIndex="2" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" GridPane.rowIndex="3" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fax number:" GridPane.rowIndex="4" />
-                                    <Text fx:id="FnameAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
-                                    <Text fx:id="MnameAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Text fx:id="LnameAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Text fx:id="ContactPhoneAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <Text fx:id="ContactFaxAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                 </children>
-                              </GridPane>
-                              <GridPane layoutX="1003.0" layoutY="539.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alt. Number:" GridPane.rowIndex="1" />
-                                    <Text fx:id="ContactEmailAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
-                                    <Text fx:id="AltPhoneAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                 </children>
-                              </GridPane>
-                              <Text layoutX="32.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Company Information">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Text>
-                              <Text layoutX="717.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Information">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Text>
-                              <Button layoutX="1281.0" layoutY="78.0" mnemonicParsing="false" text="Search" />
-                           </children></AnchorPane>
-                  </content>
-                </Tab>
-                  <Tab fx:id="MonitorTab" text="Monitor">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <Text layoutX="459.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicaid Recipient Inforce Insurance Policies ">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Text>
-                              <TableView fx:id="TableView" layoutX="28.0" layoutY="86.0" onMouseClicked="#onClickTableViewHandle" prefHeight="200.0" prefWidth="1337.0">
-                                <columns>
-                                  <TableColumn fx:id="policyNumberColumn" prefWidth="254.0" text="Policy Number" />
-                                  <TableColumn fx:id="faceValueColumn" prefWidth="281.0" text="Face Value" />
-                                    <TableColumn fx:id="providerColumn" prefWidth="261.0" text="Provider" />
-                                    <TableColumn fx:id="policyTypeColumn" prefWidth="227.0" text="Policy Type" />
-                                    <TableColumn fx:id="policyDesignationColumn" prefWidth="233.0" text="Policy Designation" />
-                                    <TableColumn fx:id="isTherePremiumColumn" prefWidth="233.0" text="Is There Any Premium?" />
-                                    <TableColumn fx:id="premiumAmountColumn" prefWidth="233.0" text="Premium Amount" />
-                                </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                              <GridPane layoutX="39.0" layoutY="345.0">
-                                <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                </columnConstraints>
-                                <rowConstraints>
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Policy Number:" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" GridPane.rowIndex="1" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type of Policy:" GridPane.rowIndex="2" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Company:" GridPane.rowIndex="3" />
-                                    <Text fx:id="policyNumberAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
-                                    <Text fx:id="statusAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Text fx:id="policyTypeAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Text fx:id="companyAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                 </children>
-                              </GridPane>
-                              <Text layoutX="39.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Policy Details">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Text>
-                              <GridPane layoutX="408.0" layoutY="345.0" prefHeight="120.0" prefWidth="318.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="155.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="74.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Face Value:" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Monthly/Quarterly/Yearly:" GridPane.rowIndex="1" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City:" GridPane.rowIndex="2" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State:" GridPane.rowIndex="3" />
-                                    <Text fx:id="faceValueAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
-                                    <Text fx:id="mqyAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Text fx:id="cityTableAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Text fx:id="stateTableAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                 </children>
-                              </GridPane>
-                              <GridPane layoutX="408.0" layoutY="547.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Due on:" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip:" GridPane.rowIndex="1" />
-                                    <Text fx:id="dueOnAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
-                                    <Text fx:id="zipCodeTableAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                 </children>
-                              </GridPane>
-                              <Text layoutX="39.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beneficiary(ies)">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Text>
-                              <GridPane layoutX="39.0" layoutY="517.0">
-                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                 </columnConstraints>
-                                 <rowConstraints>
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                 </rowConstraints>
-                                 <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" GridPane.rowIndex="1" />
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Relantionship:" GridPane.rowIndex="2" />
-                                    <Text fx:id="beneficiaryNameAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
-                                    <Text fx:id="beneficiaryLastAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Text fx:id="relationshipAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                 </children>
-                              </GridPane>
-                           </children></AnchorPane>
-                    </content>
-                  </Tab>
-                  <Tab fx:id="ReportsTab" text="Reports">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <Text layoutX="528.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monthly Account Activity Report">
-                                 <font>
-                                    <Font size="24.0" />
-                                 </font>
-                              </Text>
-                              <TableView fx:id="TableView4" layoutX="29.0" layoutY="104.0" prefHeight="443.0" prefWidth="1311.0">
-                                <columns>
-                                  <TableColumn fx:id="stateColumn" prefWidth="75.0" text="State" />
-                                  <TableColumn fx:id="fNameColumn" prefWidth="75.0" text="First Name" />
-                                    <TableColumn fx:id="lNameColumn" prefWidth="75.0" text="Last Name" />
-                                    <TableColumn fx:id="clientID" prefWidth="75.0" text="Client ID" />
-                                    <TableColumn fx:id="ssnColumn" prefWidth="75.0" text="SSN" />
-                                    <TableColumn fx:id="lifeCompanyColumn" prefWidth="87.0" text="Life Insurance Company(ies)" />
-                                    <TableColumn fx:id="policyNumberColumn4" minWidth="0.0" prefWidth="111.0" text="Policy Number" />
-                                    <TableColumn fx:id="policyTypeColumn4" prefWidth="75.0" text="Policy Type" />
-                                    <TableColumn fx:id="faceAmountColumn" prefWidth="75.0" text="Face Amount" />
-                                    <TableColumn fx:id="annuitiesColumn" prefWidth="95.0" text="Annuity(ies) Company" />
-                                    <TableColumn fx:id="totalFaceAmountColumn" minWidth="0.0" prefWidth="84.0" text="Total Face Amount" />
-                                    <TableColumn fx:id="BenefitsColumn" minWidth="0.0" prefWidth="104.0" text="Benefit Payouts" />
-                                    <TableColumn fx:id="balanceColumn" minWidth="0.0" prefWidth="112.0" text="Balance" />
-                                </columns>
-                                 <columnResizePolicy>
-                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                                 </columnResizePolicy>
-                              </TableView>
-                              <Text layoutX="44.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date to date. Ex: 01/01/2022 - 02/01/2022" />
-                           </children></AnchorPane>
-                    </content>
-                  </Tab>
-              </tabs>
-            </TabPane>
-         </children>
-    </AnchorPane>
-  </children>
+    <children>
+        <MenuBar VBox.vgrow="NEVER">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="New" />
+                        <MenuItem mnemonicParsing="false" text="Open…" />
+                        <Menu mnemonicParsing="false" text="Open Recent" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem mnemonicParsing="false" text="Save" />
+                        <MenuItem mnemonicParsing="false" text="Save As…" />
+                        <MenuItem mnemonicParsing="false" text="Revert" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Preferences…" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Quit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Undo" />
+                        <MenuItem mnemonicParsing="false" text="Redo" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Cut" />
+                        <MenuItem mnemonicParsing="false" text="Copy" />
+                        <MenuItem mnemonicParsing="false" text="Paste" />
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Select All" />
+                        <MenuItem mnemonicParsing="false" text="Unselect All" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About MRISystem App" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <AnchorPane prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+            <children>
+                <TabPane fx:id="TabPane" prefHeight="680.0" prefWidth="1400.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                        <Tab fx:id="RecipientsTab" text="Recipients">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="325.0" prefWidth="463.0">
+                                    <children>
+                                        <Text layoutX="36.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicaid Recipient Intake Data">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Text>
+                                        <GridPane layoutX="36.0" layoutY="105.0" prefHeight="103.0" prefWidth="322.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="SS No." GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Home Phone" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gender" GridPane.rowIndex="3" />
+                                                <TextField fx:id="fName" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                                <TextField fx:id="ssNumber" prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField fx:id="hPhone" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <ChoiceBox fx:id="genderChoice" prefHeight="33.0" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                            </children>
+                                        </GridPane>
+                                        <Text layoutX="25.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Recipient Information">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Text>
+                                        <GridPane layoutX="36.0" layoutY="208.0" prefHeight="39.0" prefWidth="322.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address" />
+                                                <TextField fx:id="address" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                            </children>
+                                        </GridPane>
+                                        <GridPane layoutX="36.0" layoutY="453.0" prefHeight="35.0" prefWidth="322.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Employer" />
+                                                <TextField fx:id="employer" prefHeight="25.0" prefWidth="183.0" GridPane.columnIndex="1" />
+                                            </children>
+                                        </GridPane>
+                                        <GridPane layoutX="391.0" layoutY="509.0" prefHeight="25.0" prefWidth="178.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                        </GridPane>
+                                        <GridPane layoutX="36.0" layoutY="247.0" prefHeight="103.0" prefWidth="322.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Middle Name" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Marital Status" GridPane.rowIndex="2" />
+                                                <TextField fx:id="mName" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                                <ChoiceBox fx:id="maritalChoice" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <DatePicker fx:id="birthDate" prefHeight="25.0" prefWidth="189.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                            </children>
+                                        </GridPane>
+                                        <GridPane layoutX="36.0" layoutY="350.0" prefHeight="103.0" prefWidth="322.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Maiden Name" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Place of Birth" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State" GridPane.rowIndex="3" />
+                                                <TextField fx:id="lName" prefHeight="25.0" prefWidth="159.0" GridPane.columnIndex="1" />
+                                                <TextField fx:id="maidenName" prefHeight="25.0" prefWidth="202.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <TextField fx:id="placeBirth" prefHeight="25.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <ChoiceBox fx:id="stateChoice1" prefHeight="25.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                            </children>
+                                        </GridPane>
+                                        <GridPane layoutX="34.0" layoutY="484.0" prefHeight="33.0" prefWidth="326.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.0" minWidth="10.0" prefWidth="156.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="245.0" minWidth="10.0" prefWidth="211.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Funeral Home" />
+                                                <TextField fx:id="fHome" prefHeight="25.0" prefWidth="193.0" GridPane.columnIndex="1" />
+                                            </children>
+                                        </GridPane>
+                                        <Button fx:id="addRecipientBtn" layoutX="25.0" layoutY="554.0" mnemonicParsing="false" onAction="#addRecipient" prefHeight="25.0" prefWidth="127.0" text="Enter" />
+                                        <Button fx:id="lifeButton" layoutX="159.0" layoutY="554.0" mnemonicParsing="false" onAction="#lifeButtonHandle" text="Life Insurance Details" />
+                                        <Button fx:id="importButton" layoutX="294.0" layoutY="554.0" mnemonicParsing="false" onAction="#importButtonHandle" prefHeight="25.0" prefWidth="128.0" text="Import" />
+                                        <ListView fx:id="recipientListView" layoutX="569.0" layoutY="105.0" prefHeight="410.0" prefWidth="727.0" />
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="ProvidersTab" text="Providers">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TextField layoutX="34.0" layoutY="78.0" prefHeight="25.0" prefWidth="1249.0" promptText="Search" />
+                                        <Text layoutX="530.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Insurance Company Information">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Text>
+                                        <ListView fx:id="listView" layoutX="32.0" layoutY="126.0" onMouseClicked="#onClickHandle" prefHeight="319.0" prefWidth="1301.0" />
+                                        <GridPane layoutX="32.0" layoutY="479.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Company Name:" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street address:" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City:" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State:" GridPane.rowIndex="3" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Country:" GridPane.rowIndex="4" />
+                                                <Text fx:id="CompanyNameAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                                                <Text fx:id="AddressAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Text fx:id="CityAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Text fx:id="StateAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Text fx:id="CountryAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                            </children>
+                                        </GridPane>
+                                        <GridPane layoutX="274.0" layoutY="494.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fax number:" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip code:" GridPane.rowIndex="2" />
+                                                <Text fx:id="PhoneAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                                                <Text fx:id="FaxAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Text fx:id="ZipAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                            </children>
+                                        </GridPane>
+                                        <GridPane layoutX="717.0" layoutY="479.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Middle Name:" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" GridPane.rowIndex="3" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fax number:" GridPane.rowIndex="4" />
+                                                <Text fx:id="FnameAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                                                <Text fx:id="MnameAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Text fx:id="LnameAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Text fx:id="ContactPhoneAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Text fx:id="ContactFaxAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                            </children>
+                                        </GridPane>
+                                        <GridPane layoutX="1003.0" layoutY="539.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Alt. Number:" GridPane.rowIndex="1" />
+                                                <Text fx:id="ContactEmailAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                                                <Text fx:id="AltPhoneAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                            </children>
+                                        </GridPane>
+                                        <Text layoutX="32.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Company Information">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Text>
+                                        <Text layoutX="717.0" layoutY="468.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Information">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Text>
+                                        <Button layoutX="1281.0" layoutY="78.0" mnemonicParsing="false" text="Search" />
+                                    </children></AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="MonitorTab" text="Monitor">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <Text layoutX="459.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicaid Recipient Inforce Insurance Policies ">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Text>
+                                        <TableView fx:id="TableView" layoutX="28.0" layoutY="86.0" onMouseClicked="#onClickTableViewHandle" prefHeight="200.0" prefWidth="1337.0">
+                                            <columns>
+                                                <TableColumn fx:id="policyNumberColumn" prefWidth="254.0" text="Policy Number" />
+                                                <TableColumn fx:id="faceValueColumn" prefWidth="281.0" text="Face Value" />
+                                                <TableColumn fx:id="providerColumn" prefWidth="261.0" text="Provider" />
+                                                <TableColumn fx:id="policyTypeColumn" prefWidth="227.0" text="Policy Type" />
+                                                <TableColumn fx:id="policyDesignationColumn" prefWidth="233.0" text="Policy Designation" />
+                                                <TableColumn fx:id="isTherePremiumColumn" prefWidth="233.0" text="Is There Any Premium?" />
+                                                <TableColumn fx:id="premiumAmountColumn" prefWidth="233.0" text="Premium Amount" />
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                            </columnResizePolicy>
+                                        </TableView>
+                                        <GridPane layoutX="39.0" layoutY="345.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Policy Number:" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Type of Policy:" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Company:" GridPane.rowIndex="3" />
+                                                <Text fx:id="policyNumberAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                                                <Text fx:id="statusAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Text fx:id="policyTypeAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Text fx:id="companyAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                            </children>
+                                        </GridPane>
+                                        <Text layoutX="39.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Policy Details">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Text>
+                                        <GridPane layoutX="408.0" layoutY="345.0" prefHeight="120.0" prefWidth="318.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="155.0" minWidth="10.0" prefWidth="155.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="74.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Face Value:" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Monthly/Quarterly/Yearly:" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City:" GridPane.rowIndex="2" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="State:" GridPane.rowIndex="3" />
+                                                <Text fx:id="faceValueAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                                                <Text fx:id="mqyAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Text fx:id="cityTableAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Text fx:id="stateTableAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                            </children>
+                                        </GridPane>
+                                        <GridPane layoutX="408.0" layoutY="547.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Due on:" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zip:" GridPane.rowIndex="1" />
+                                                <Text fx:id="dueOnAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                                                <Text fx:id="zipCodeTableAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                            </children>
+                                        </GridPane>
+                                        <Text layoutX="39.0" layoutY="505.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Beneficiary(ies)">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </Text>
+                                        <GridPane layoutX="39.0" layoutY="517.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name:" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:" GridPane.rowIndex="1" />
+                                                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Relantionship:" GridPane.rowIndex="2" />
+                                                <Text fx:id="beneficiaryNameAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" />
+                                                <Text fx:id="beneficiaryLastAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Text fx:id="relationshipAnswer" strokeType="OUTSIDE" strokeWidth="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                            </children>
+                                        </GridPane>
+                                    </children></AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="ReportsTab" text="Reports">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <Text layoutX="528.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monthly Account Activity Report">
+                                            <font>
+                                                <Font size="24.0" />
+                                            </font>
+                                        </Text>
+                                        <TableView fx:id="TableView4" layoutX="29.0" layoutY="104.0" prefHeight="443.0" prefWidth="1311.0">
+                                            <columns>
+                                                <TableColumn fx:id="stateColumn" prefWidth="75.0" text="State" />
+                                                <TableColumn fx:id="fNameColumn" prefWidth="75.0" text="First Name" />
+                                                <TableColumn fx:id="lNameColumn" prefWidth="75.0" text="Last Name" />
+                                                <TableColumn fx:id="clientID" prefWidth="75.0" text="Client ID" />
+                                                <TableColumn fx:id="ssnColumn" prefWidth="75.0" text="SSN" />
+                                                <TableColumn fx:id="lifeCompanyColumn" prefWidth="87.0" text="Life Insurance Company(ies)" />
+                                                <TableColumn fx:id="policyNumberColumn4" minWidth="0.0" prefWidth="111.0" text="Policy Number" />
+                                                <TableColumn fx:id="policyTypeColumn4" prefWidth="75.0" text="Policy Type" />
+                                                <TableColumn fx:id="faceAmountColumn" prefWidth="75.0" text="Face Amount" />
+                                                <TableColumn fx:id="annuitiesColumn" prefWidth="95.0" text="Annuity(ies) Company" />
+                                                <TableColumn fx:id="totalFaceAmountColumn" minWidth="0.0" prefWidth="84.0" text="Total Face Amount" />
+                                                <TableColumn fx:id="BenefitsColumn" minWidth="0.0" prefWidth="104.0" text="Benefit Payouts" />
+                                                <TableColumn fx:id="balanceColumn" minWidth="0.0" prefWidth="112.0" text="Balance" />
+                                            </columns>
+                                            <columnResizePolicy>
+                                                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                            </columnResizePolicy>
+                                        </TableView>
+                                        <Text layoutX="44.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="date to date. Ex: 01/01/2022 - 02/01/2022" />
+                                    </children></AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </children>
+        </AnchorPane>
+    </children>
 </VBox>

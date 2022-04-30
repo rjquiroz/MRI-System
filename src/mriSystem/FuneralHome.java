@@ -17,4 +17,19 @@ public class FuneralHome {
         return "\nFuneral Home Information: \n\nFuneral Home: " + name + funeralAddress.toString();
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setFuneralAddress(Address funeralAddress) {
+        this.funeralAddress = funeralAddress;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Address getFuneralAddress() {
+        return funeralAddress;
+    }
 }
