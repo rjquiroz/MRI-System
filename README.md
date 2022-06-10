@@ -21,13 +21,13 @@ The software will be designed as follows:
 Some of the diagrams we did during our design phase even though they are actually not 100% accurate to the final product:
 
 Use Case: <br />
-![Use Case](res/diagram 1.png)<br />
+![Use Case](res/diagram1.png)<br />
 Sequence Diagram: <br />
-![Sequence Diagram](res/diagram 2.png)<br />
+![Sequence Diagram](res/diagram2.png)<br />
 Deployment Diagram: <br />
-![Deployment Diagram](res/diagram 3.png) <br />
+![Deployment Diagram](res/diagram3.png) <br />
 Class Diagram: <br />
-![Class Diagram](res/diagram 4.png) <br />
+![Class Diagram](res/diagram4.png) <br />
 
 ## Getting Started
 
